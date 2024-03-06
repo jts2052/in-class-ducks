@@ -1,6 +1,6 @@
 package edu.iu.habahram.ducksservice.model;
 
-public abstract class Duck {
+public abstract class Duck implements Comparable<Duck> {
     FlyBehavior flyBehavior;
     QuackBehavior quackBehavior;
 
@@ -53,5 +53,10 @@ public abstract class Duck {
 
     public void performQuack() {
         quackBehavior.quack();
+    }
+
+    @Override
+    public int compareTo(Duck other) {
+        return this.getType().compareTo(other.getType());
     }
 }
